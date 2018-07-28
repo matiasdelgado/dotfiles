@@ -2,6 +2,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 execute pathogen#infect()
 
 syntax enable
+colorscheme gruvbox
 filetype plugin indent on
 
 runtime macros/matchit.vom
@@ -34,9 +35,20 @@ map <C-K> :bprev<CR>
 set splitbelow
 set splitright
 
+if !empty(glob("~/.vimrc_ctrlp"))
+  source ~/.vimrc_ctrlp
+endif
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|deps'
+
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
   set undodir=~/.vim/undo
 endif
+
+" Clear search highlight
+nnoremap <CR> :noh<CR><CR>:<backspace>
+" Find selection
+vnoremap // y/<C-R>"<CR>
+

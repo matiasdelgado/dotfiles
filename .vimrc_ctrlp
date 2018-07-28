@@ -1,0 +1,42 @@
+function! CtrlPOpenFunc(action, line)
+  if a:action =~ '^h$'
+    " Get the filename
+    let filename = fnameescape(fnamemodify(a:line, ':.'))
+    let current = fnamemodify(expand('#:p'), ':.')
+
+    let filenameArr = split(filename, '/')
+    let currentArr = split(current, '/')
+
+    let common = 1
+    while common == 1
+      if filenameArr[0] == currentArr[0]
+        call remove(filenameArr, 0)
+        call remove(currentArr, 0)
+      else
+        let common = 0
+      endif
+    endwhile
+
+    let result = repeat('../', len(currentArr) - 1) . join(filenameArr, '/')
+    if result =~ '\.jsx\?$'
+      let result = substitute(result, '\.jsx\?$', '', 'i')
+    endif
+    if result =~ '\/index$'
+      let result = substitute(result, '\/index$', '', 'i')
+    endif
+    if result !~ '^\.'
+      let result = './' . result
+    endif
+
+    " Close CtrlP
+    call ctrlp#exit()
+    call ctrlp#mrufiles#add(filename)
+
+    " insert the contents of filename into the buffer
+    call setline('.', getline('.') . '"' . result . '"')
+  else
+    " Use CtrlP's default file opening function
+    call call('ctrlp#acceptfile', [a:action, a:line])
+  endif
+endfunction
+let g:ctrlp_open_func = { 'files': 'CtrlPOpenFunc', 'mru files': 'CtrlPOpenFunc' }
