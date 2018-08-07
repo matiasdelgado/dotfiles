@@ -7,6 +7,9 @@ filetype plugin indent on
 
 runtime macros/matchit.vom
 
+" Allow per-project configuration files
+set exrc
+
 set nowrap
 set hlsearch
 set showcmd
@@ -35,10 +38,16 @@ map <C-K> :bprev<CR>
 set splitbelow
 set splitright
 
+set clipboard=unnamed
+
+" Airline setup
+let g:airline_theme='deus'
+
+" CtrlP setup
 if !empty(glob("~/.vimrc_ctrlp"))
   source ~/.vimrc_ctrlp
 endif
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|deps'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|'
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
@@ -52,3 +61,5 @@ nnoremap <CR> :noh<CR><CR>:<backspace>
 " Find selection
 vnoremap // y/<C-R>"<CR>
 
+" Disable unsafe commands in project-specific .vimrc files
+set secure
