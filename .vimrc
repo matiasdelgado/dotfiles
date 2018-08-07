@@ -11,13 +11,12 @@ Plugin 'elixir-lang/vim-elixir.git'
 Plugin 'pangloss/vim-javascript.git'
 Plugin 'mxw/vim-jsx.git'
 Plugin 'tpope/vim-surround.git'
+Plugin 'SirVer/ultisnips.git'
 call vundle#end()
 filetype plugin indent on
 
 syntax enable
 colorscheme gruvbox
-
-runtime macros/matchit.vom
 
 " Allow per-project configuration files
 set exrc
@@ -54,6 +53,12 @@ set clipboard=unnamed
 
 " Airline setup
 let g:airline_theme='deus'
+
+" Snippets setup
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetsDir="~/.vim/snippets"
 
 " CtrlP setup
 if !empty(glob("~/.vimrc_ctrlp"))

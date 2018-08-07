@@ -11,6 +11,7 @@ Installed plugins:
 * vim-javascript
 * vim-jsx
 * vim-surround
+* UltiSnips
 
 ### Color scheme
 * [gruvbox](https://github.com/morhetz/gruvbox)
