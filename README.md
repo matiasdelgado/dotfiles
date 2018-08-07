@@ -6,6 +6,7 @@ Installed plugins:
 * ctrlp.vim
 * editorconfig.vim
 * vim-airline
+* vim-airline-themes
 * vim-elixir
 * vim-javascript
 * vim-jsx

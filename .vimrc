@@ -1,9 +1,21 @@
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-execute pathogen#infect()
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'ctrlpvim/ctrlp.vim.git'
+Plugin 'editorconfig/editorconfig-vim.git'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'elixir-lang/vim-elixir.git'
+Plugin 'pangloss/vim-javascript.git'
+Plugin 'mxw/vim-jsx.git'
+Plugin 'tpope/vim-surround.git'
+call vundle#end()
+filetype plugin indent on
 
 syntax enable
 colorscheme gruvbox
-filetype plugin indent on
 
 runtime macros/matchit.vom
 
