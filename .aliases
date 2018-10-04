@@ -5,6 +5,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias -- -="cd -"
+alias gittop="git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -20"
 
 # Shortcuts
 alias d="cd ~/Dropbox"

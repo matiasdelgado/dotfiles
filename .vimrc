@@ -12,6 +12,8 @@ Plugin 'pangloss/vim-javascript.git'
 Plugin 'mxw/vim-jsx.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'SirVer/ultisnips.git'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'janko-m/vim-test'
 call vundle#end()
 filetype plugin indent on
 
@@ -60,11 +62,16 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir="~/.vim/snippets"
 
+" Tests setup
+nmap <silent> <Leader>tn :TestNearest<CR>
+nmap <silent> <Leader>tf :TestFile<CR>
+nmap <silent> <Leader>tl :TestLast<CR>
+
 " CtrlP setup
 if !empty(glob("~/.vimrc_ctrlp"))
   source ~/.vimrc_ctrlp
 endif
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|'
+let g:ctrlp_custom_ignore = 'node_modules'
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
@@ -77,6 +84,9 @@ endif
 nnoremap <CR> :noh<CR><CR>:<backspace>
 " Find selection
 vnoremap // y/<C-R>"<CR>
+
+" Open file in browser
+nmap <silent> <leader>w :!open % -a Google\ Chrome<CR><CR>
 
 " Disable unsafe commands in project-specific .vimrc files
 set secure
