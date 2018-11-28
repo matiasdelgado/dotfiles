@@ -14,8 +14,11 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'SirVer/ultisnips.git'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'janko-m/vim-test'
+Plugin 'prettier/vim-prettier'
 call vundle#end()
 filetype plugin indent on
+
+set encoding=utf-8
 
 syntax enable
 colorscheme gruvbox
@@ -44,6 +47,10 @@ set ruler
 set softtabstop=2
 set expandtab
 set shiftwidth=2
+
+" set showbreak=↪\ 
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:·
+set list
 
 map <C-J> :bnext<CR>
 map <C-K> :bprev<CR>
