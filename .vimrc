@@ -3,7 +3,6 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'editorconfig/editorconfig-vim.git'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -15,8 +14,12 @@ Plugin 'SirVer/ultisnips.git'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'janko-m/vim-test'
 Plugin 'prettier/vim-prettier'
+Plugin 'junegunn/fzf.vim'
+Plugin 'jremmen/vim-ripgrep'
 call vundle#end()
 filetype plugin indent on
+
+set rtp+=/usr/local/opt/fzf
 
 set encoding=utf-8
 
@@ -63,22 +66,7 @@ set clipboard=unnamed
 " Airline setup
 let g:airline_theme='deus'
 
-" Snippets setup
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetsDir="~/.vim/snippets"
-
-" Tests setup
-nmap <silent> <Leader>tn :TestNearest<CR>
-nmap <silent> <Leader>tf :TestFile<CR>
-nmap <silent> <Leader>tl :TestLast<CR>
-
-" CtrlP setup
-if !empty(glob("~/.vimrc_ctrlp"))
-  source ~/.vimrc_ctrlp
-endif
-let g:ctrlp_custom_ignore = 'node_modules'
+runtime! custom/*.vim
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
