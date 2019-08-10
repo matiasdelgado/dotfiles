@@ -16,6 +16,8 @@ Plugin 'janko-m/vim-test'
 Plugin 'prettier/vim-prettier'
 Plugin 'junegunn/fzf.vim'
 Plugin 'jremmen/vim-ripgrep'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'zirrostig/vim-schlepp'
 call vundle#end()
 filetype plugin indent on
 
@@ -79,6 +81,9 @@ endif
 nnoremap <CR> :noh<CR><CR>:<backspace>
 " Find selection
 vnoremap // y/<C-R>"<CR>
+
+" Open file explorer
+nmap <silent> <leader>e :Ex<CR>
 
 " Open file in browser
 nmap <silent> <leader>w :!open % -a Google\ Chrome<CR><CR>

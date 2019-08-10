@@ -26,7 +26,7 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all --height 40% --border'
 
 nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
@@ -44,3 +44,4 @@ nmap <Leader>: :History:<CR>
 nmap <Leader>/ :History/<CR>
 nmap <Leader>M :Maps<CR>
 nmap <Leader>s :Filetypes<CR>
+nmap <Leader>x :GGrep<CR>
