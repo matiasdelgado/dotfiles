@@ -5,15 +5,19 @@ Minimalist configuration.
 Installed plugins:
 * editorconfig.vim
 * fzf.vim
+* typescript-vim
+* UltiSnips
 * vim-airline
 * vim-airline-themes
 * vim-elixir
 * vim-javascript
 * vim-jsx
+* vim-jsx-typescript
 * vim-prettier
 * vim-ripgrep
+* vim-schlepp
 * vim-surround
-* UltiSnips
+* vim-test
 
 ### Color scheme
 * [gruvbox](https://github.com/morhetz/gruvbox)

@@ -85,6 +85,10 @@ vnoremap // y/<C-R>"<CR>
 " Open file explorer
 nmap <silent> <leader>e :Ex<CR>
 
+" Allow uppercase commands for saving and quitting
+command W w
+command Q q
+
 " Open file in browser
 nmap <silent> <leader>w :!open % -a Google\ Chrome<CR><CR>
 
