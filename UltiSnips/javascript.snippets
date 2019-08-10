@@ -1,0 +1,144 @@
+snippet im "import xyz from 'xyz'"
+import ${1} from "${2:$1}";
+endsnippet
+
+snippet imas "import * as xyz from 'xyz'"
+import * as ${1} from "${2:$1}";
+endsnippet
+
+snippet imm "import { member } from 'xyz'"
+import { ${1} } from "${2}";
+endsnippet
+
+snippet fnr
+function ${1:functionName}(${2:props}) {
+	return (
+		${0:${VISUAL}}
+	);
+}
+endsnippet
+
+snippet fn
+function ${1:functionName}(${2:props}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet ed
+export default ${0}
+endsnippet
+
+snippet const
+const ${1} = ${0};
+endsnippet
+
+snippet let
+let ${1} = ${0};
+endsnippet
+
+snippet cla
+class ${1} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet clax
+class ${1} extends ${2} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet clac
+class ${1} {
+	constructor(${2}) {
+		${0:${VISUAL}}
+	}
+}
+endsnippet
+
+snippet foro "for (const prop of object}) { ... }"
+for (const ${1:prop} of ${2:object}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet af
+const ${1:function_name} = (${2}) => {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet caf
+const ${1:function_name} = (${2}) => {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet =>
+(${1}) => {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet af
+(${1}) => {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet sym
+const ${1} = Symbol("${0}");
+endsnippet
+
+snippet ed
+export default ${0}
+endsnippet
+
+snippet ${
+${${1}}${0}
+endsnippet
+
+snippet today "Date"
+${1:`date +%Y-%m-%d`}
+endsnippet
+
+# React
+snippet ir
+import React from "react";
+endsnippet
+
+snippet ue
+React.useEffect(() => {
+	$1
+}, []);
+endsnippet
+
+snippet us
+const [${1:value}, set${1/(\w+).*/\u$0/g}] = useState($0);
+endsnippet
+
+snippet ur
+const [${1:state}, ${2:setState}] = useReducer(
+	(state, newState) => ({ ...state, ...newState }),
+	${3:initialValue}
+);$0
+endsnippet
+
+# Tests
+snippet desc "Test Suite"
+describe("$1:Test Suite", async () => {
+	${0:${VISUAL}}
+});
+endsnippet
+
+snippet it "Test case"
+it("$1", async () => {
+	${0:${VISUAL}}
+});
+endsnippet
+
+snippet be "Before Each"
+beforeEach("$1", async () => {
+	${0:${VISUAL}}
+});
+endsnippet
