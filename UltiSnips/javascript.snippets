@@ -1,5 +1,5 @@
 snippet ci "console.info"
-console.info('${1}', ${2});${0}
+console.info('${1}', ${2:$1});${0}
 endsnippet
 
 snippet im "import xyz from 'xyz'"
@@ -138,17 +138,5 @@ try {
 	${1:${VISUAL}}
 } catch (err) {
 	${0}
-}
-endsnippet
-
-snippet ei "Export Interface"
-export interface I${1:Props} {
-	${0:${VISUAL}}
-}
-endsnippet
-
-snippet i "Interface"
-interface I$1 {
-	${0:${VISUAL}}
 }
 endsnippet

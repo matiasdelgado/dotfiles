@@ -18,6 +18,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'zirrostig/vim-schlepp'
+Plugin 'mattn/emmet-vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -27,6 +28,7 @@ set encoding=utf-8
 
 syntax enable
 colorscheme gruvbox
+set background=dark
 
 " Allow per-project configuration files
 set exrc
