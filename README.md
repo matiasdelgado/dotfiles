@@ -14,8 +14,6 @@ Installed plugins:
 * vim-jsx
 * vim-jsx-typescript
 * vim-prettier
-* vim-ripgrep
-* vim-schlepp
 * vim-surround
 * vim-test
 

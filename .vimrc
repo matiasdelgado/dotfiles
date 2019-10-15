@@ -15,9 +15,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'janko-m/vim-test'
 Plugin 'prettier/vim-prettier'
 Plugin 'junegunn/fzf.vim'
-Plugin 'jremmen/vim-ripgrep'
 Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'zirrostig/vim-schlepp'
 Plugin 'mattn/emmet-vim'
 call vundle#end()
 filetype plugin indent on
