@@ -82,6 +82,9 @@ nnoremap <CR> :noh<CR><CR>:<backspace>
 " Find selection
 vnoremap // y/<C-R>"<CR>
 
+" Replace selection
+vnoremap <leader>ss y:%s/<C-R>"//g<left><left>
+
 " Open file explorer
 nmap <silent> <leader>e :Ex<CR>
 
@@ -90,7 +93,10 @@ command W w
 command Q q
 
 " Open file in browser
-nmap <silent> <leader>w :!open % -a Google\ Chrome<CR><CR>
+nmap <silent> <leader>w :!open % -a Brave\ Browser<CR><CR>
+
+" Replace currently selected text with default register without yanking it
+vnoremap <leader>p "_dP
 
 " Disable unsafe commands in project-specific .vimrc files
 set secure
