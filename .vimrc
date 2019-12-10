@@ -93,7 +93,7 @@ command W w
 command Q q
 
 " Open file in browser
-nmap <silent> <leader>w :!open % -a Brave\ Browser<CR><CR>
+nmap <silent> <leader>w :!open % -a Google\ Chrome<CR><CR>
 
 " Replace currently selected text with default register without yanking it
 vnoremap <leader>p "_dP
