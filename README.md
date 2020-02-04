@@ -1,14 +1,18 @@
 # dotfiles
 
 ## .vimrc
-Minimalist configuration. 
+Minimalist (?) configuration. 
 Installed plugins:
+* ale
 * editorconfig.vim
+* emmet-vim
 * fzf.vim
+* swift.vim
 * typescript-vim
 * UltiSnips
 * vim-airline
 * vim-airline-themes
+* vim-coffee-script
 * vim-elixir
 * vim-javascript
 * vim-jsx

@@ -9,7 +9,8 @@ alias gittop="git log --pretty=format: --name-only | sort | uniq -c | sort -rg |
 
 # Shortcuts
 alias d="cd ~/Dropbox"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
+alias dw="cd ~/Downloads"
+alias dk="cd ~/Desktop"
+alias dm="cd ~/Documents"
 alias w="cd ~/work"
 
