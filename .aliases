@@ -14,3 +14,6 @@ alias dk="cd ~/Desktop"
 alias dm="cd ~/Documents"
 alias w="cd ~/work"
 
+alias v="[ -f session.vim ] && vim . -S session.vim || vim ."
+alias wifi="security find-generic-password -wga "
+alias mux="tmuxinator"
