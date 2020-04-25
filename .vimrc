@@ -11,16 +11,15 @@ Plugin 'pangloss/vim-javascript.git'
 Plugin 'mxw/vim-jsx.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'SirVer/ultisnips.git'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'janko-m/vim-test'
 Plugin 'prettier/vim-prettier'
 Plugin 'junegunn/fzf.vim'
 Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'mattn/emmet-vim'
-Plugin 'keith/swift.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'dense-analysis/ale'
 Plugin 'slim-template/vim-slim.git'
+Plugin 'mattn/emmet-vim'
+Plugin 'dense-analysis/ale'
+" Plugin 'morhetz/gruvbox'
+Plugin 'rakr/vim-one'
 call vundle#end()
 filetype plugin indent on
 
@@ -29,8 +28,13 @@ set rtp+=/usr/local/opt/fzf
 set encoding=utf-8
 
 syntax enable
-colorscheme gruvbox
+colorscheme one
 set background=dark
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " Allow per-project configuration files
 set exrc
@@ -57,7 +61,7 @@ set softtabstop=2
 set expandtab
 set shiftwidth=2
 
-" set showbreak=↪\ 
+" set showbreak=↪\
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:·
 set list
 
@@ -95,6 +99,8 @@ nmap <silent> <leader>e :Ex<CR>
 " Allow uppercase commands for saving and quitting
 command W w
 command Q q
+command Qa qa
+command Wa wa
 
 " Open file in browser
 nmap <silent> <leader>w :!open % -a Google\ Chrome<CR><CR>

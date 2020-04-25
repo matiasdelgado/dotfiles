@@ -7,12 +7,9 @@ Installed plugins:
 * editorconfig.vim
 * emmet-vim
 * fzf.vim
-* swift.vim
-* typescript-vim
 * UltiSnips
 * vim-airline
 * vim-airline-themes
-* vim-coffee-script
 * vim-elixir
 * vim-javascript
 * vim-jsx
@@ -21,8 +18,9 @@ Installed plugins:
 * vim-surround
 * vim-test
 
-### Color scheme
+### Color schemes
 * [gruvbox](https://github.com/morhetz/gruvbox)
+* [vim-one](https://github.com/rakr/vim-one)
 
 ## .bash_prompt, .aliases
 Based on [@mathiasbynes's](https://github.com/mathiasbynens/dotfiles)
@@ -37,4 +35,5 @@ source ~/dotfiles/.aliases
 Create symbolic link in the appropriate directory: 
 ```bash
 ln -s ~/dotfiles/.vimrc ~/.vimrc
+ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ```
