@@ -368,8 +368,7 @@ end
 endsnippet
 
 snippet file_save
-{:ok, file} = File.open("${1:test.txt}", [:write])
-IO.binwrite(file,${2})
+{:ok, file} = File.open("${1:test.html}", [:write])
+IO.binwrite(file, ${0})
 File.close(file)
-${0}
 endsnippet

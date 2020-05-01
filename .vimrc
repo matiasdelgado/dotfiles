@@ -1,26 +1,25 @@
+
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'editorconfig/editorconfig-vim.git'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'elixir-lang/vim-elixir.git'
-Plugin 'pangloss/vim-javascript.git'
-Plugin 'mxw/vim-jsx.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'SirVer/ultisnips.git'
-Plugin 'janko-m/vim-test'
-Plugin 'prettier/vim-prettier'
-Plugin 'junegunn/fzf.vim'
-Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'slim-template/vim-slim.git'
-Plugin 'mattn/emmet-vim'
-Plugin 'dense-analysis/ale'
-" Plugin 'morhetz/gruvbox'
-Plugin 'rakr/vim-one'
-call vundle#end()
+call plug#begin()
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'elixir-lang/vim-elixir'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-surround'
+Plug 'SirVer/ultisnips'
+Plug 'janko-m/vim-test'
+Plug 'prettier/vim-prettier'
+Plug 'junegunn/fzf.vim'
+Plug 'slim-template/vim-slim'
+Plug 'mattn/emmet-vim'
+Plug 'dense-analysis/ale'
+" Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
+call plug#end()
+
 filetype plugin indent on
 
 set rtp+=/usr/local/opt/fzf
