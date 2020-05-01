@@ -18,6 +18,7 @@ Plug 'mattn/emmet-vim'
 Plug 'dense-analysis/ale'
 " Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
+Plug 'kshenoy/vim-signature'
 call plug#end()
 
 filetype plugin indent on
