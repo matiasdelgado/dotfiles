@@ -19,6 +19,8 @@ Plug 'dense-analysis/ale'
 " Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'kshenoy/vim-signature'
+Plug 'tpope/vim-endwise'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 filetype plugin indent on
@@ -72,6 +74,8 @@ set splitbelow
 set splitright
 
 set clipboard=unnamed
+nmap yfn :let @*=expand("%")<CR>
+nmap yfp :let @*=expand("%:p")<CR>
 
 " Airline setup
 let g:airline_theme='deus'
@@ -85,6 +89,9 @@ if exists("&undodir")
   set undodir=~/.vim/undo
 endif
 
+" Keep the current directory the same as the browsing directory
+" let g:netrw_keepdir=0 " Fixes netrw cp/mv, but makes Rg to search in the current directory
+
 " Clear search highlight
 nnoremap <CR> :noh<CR><CR>:<backspace>
 " Find selection
@@ -96,14 +103,15 @@ vnoremap <leader>ss y:%s/<C-R>"//g<left><left>
 " Open file explorer
 nmap <silent> <leader>e :Ex<CR>
 
-" Allow uppercase commands for saving and quitting
+" Allow uppercase commands
 command W w
 command Q q
 command Qa qa
 command Wa wa
+command Tabe tabe
 
 " Open file in browser
-nmap <silent> <leader>w :!open % -a Google\ Chrome<CR><CR>
+nmap <silent> <leader>w :!open % -a Microsoft\ Edge<CR><CR>
 
 " Replace currently selected text with default register without yanking it
 vnoremap <leader>p "_dP

@@ -16,6 +16,11 @@ snippet insl "IO.inspect with label"
 IO.inspect(${0}label: "${1:label}")
 endsnippet
 
+snippet inst "IO.inspect for debugging"
+IO.inspect "----------------------------------"
+IO.inspect ${0}
+endsnippet
+
 snippet if "if .. do .. end"
 if ${1} do
 	${0:${VISUAL}}
