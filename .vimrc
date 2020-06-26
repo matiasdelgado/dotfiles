@@ -21,6 +21,7 @@ Plug 'rakr/vim-one'
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 filetype plugin indent on

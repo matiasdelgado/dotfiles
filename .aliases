@@ -15,5 +15,6 @@ alias dm="cd ~/Documents"
 alias w="cd ~/work"
 
 alias v="[ -f session.vim ] && vim . -S session.vim || vim ."
+alias vg="vim $(git status --porcelain | awk '{print $2}')"
 alias wifi="security find-generic-password -wga "
 alias mux="tmuxinator"
