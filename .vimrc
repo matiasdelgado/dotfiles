@@ -11,7 +11,7 @@ Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 Plug 'janko-m/vim-test'
-Plug 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/0.x' }
 Plug 'junegunn/fzf.vim'
 Plug 'slim-template/vim-slim'
 Plug 'mattn/emmet-vim'
@@ -22,6 +22,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
+Plug 'ruanyl/vim-gh-line'
 call plug#end()
 
 filetype plugin indent on
@@ -58,6 +60,7 @@ set ignorecase
 set smartcase
 
 set number
+set relativenumber
 set ruler
 
 set softtabstop=2
@@ -92,6 +95,7 @@ endif
 
 " Keep the current directory the same as the browsing directory
 " let g:netrw_keepdir=0 " Fixes netrw cp/mv, but makes Rg to search in the current directory
+let g:netrw_banner=0
 
 " Clear search highlight
 nnoremap <CR> :noh<CR><CR>:<backspace>

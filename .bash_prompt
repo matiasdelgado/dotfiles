@@ -9,6 +9,26 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM='xterm-256color';
 fi;
 
+kill_by_name() {
+  if [ "$#" -eq  "0" ]
+    then
+      echo "No arguments supplied"
+  else
+    MYPROCS=$(ps aux | grep "$1" | grep -v "grep" | awk '{print $2}')
+    echo "Process count: "; echo $MYPROCS | wc -w && kill -9 $MYPROCS
+  fi
+}
+
+v() {
+  RESULT=$(jobs | grep vim | tail -1 | sed -E 's/^\[([0-9]+)\].*/\1/')
+  if [ ! -z $RESULT ]
+  then
+    fg $RESULT
+  else
+    if [ -f session.vim ]; then vim . -S session.vim; else vim .; fi
+  fi
+}
+
 prompt_git() {
 	local s='';
 	local branchName='';
