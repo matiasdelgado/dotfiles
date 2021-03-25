@@ -18,12 +18,14 @@ Plug 'mattn/emmet-vim'
 Plug 'dense-analysis/ale'
 " Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
+" Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'ruanyl/vim-gh-line'
+Plug 'zivyangll/git-blame.vim'
 call plug#end()
 
 filetype plugin indent on
@@ -34,6 +36,8 @@ set encoding=utf-8
 
 syntax enable
 colorscheme one
+" colorscheme dracula
+" let g:dracula_italic = 0
 set background=dark
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"

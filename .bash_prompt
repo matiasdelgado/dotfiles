@@ -23,7 +23,7 @@ v() {
   RESULT=$(jobs | grep vim | tail -1 | sed -E 's/^\[([0-9]+)\].*/\1/')
   if [ ! -z $RESULT ]
   then
-    fg $RESULT
+    fg %$RESULT
   else
     if [ -f session.vim ]; then vim . -S session.vim; else vim .; fi
   fi

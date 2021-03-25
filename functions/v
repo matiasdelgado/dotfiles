@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+v() {
+  RESULT=$(jobs | grep -E 'v$|vim' | tail -1 | sed -E 's/^\[([0-9]+)\].*/\1/')
+  if [ ! -z $RESULT ]; then
+    fg %$RESULT
+  elif [ -f session.vim ]; then
+    vim . -S session.vim
+  else
+    vim .
+  fi
+  return 0
+}
+

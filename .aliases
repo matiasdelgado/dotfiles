@@ -14,6 +14,6 @@ alias dk="cd ~/Desktop"
 alias dm="cd ~/Documents"
 alias w="cd ~/work"
 
-alias vg="vim $(git status --porcelain | awk '{print $2}')"
+alias vg="vim \$(git status --porcelain | awk '{print \$2}')"
 alias wifi="security find-generic-password -wga "
 alias mux="tmuxinator"

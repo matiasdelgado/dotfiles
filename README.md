@@ -25,13 +25,23 @@ Installed plugins:
 ## .bash_prompt, .aliases
 Based on [@mathiasbynes's](https://github.com/mathiasbynens/dotfiles)
 
-Add to the bash_profile:
+Add to the bash_profile or zprofile:
 ```
 source ~/dotfiles/.aliases
 ```
 
 
 # Usage
+Create folders in `.vim/`:
+* swaps
+* backups
+
+Install Plug:
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
 Create symbolic link in the appropriate directory: 
 ```bash
 ln -s ~/dotfiles/.vimrc ~/.vimrc

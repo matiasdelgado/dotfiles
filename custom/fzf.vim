@@ -29,7 +29,10 @@ let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list'),
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+  \ 'ctrl-v': 'vsplit',
+  \ 'ctrl-o': 'tab drop' }
+
+" let g:fzf_layout = { 'down': '~40%'  }
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all --height 40% --border'
 
@@ -48,5 +51,5 @@ nmap <Leader>C :Commands<CR>
 nmap <Leader>: :History:<CR>
 nmap <Leader>/ :History/<CR>
 nmap <Leader>M :Maps<CR>
-nmap <Leader>s :Filetypes<CR>
+" nmap <Leader>s :Filetypes<CR>
 nmap <Leader>x :Find<CR>

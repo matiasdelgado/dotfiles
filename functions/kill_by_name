@@ -1,0 +1,10 @@
+kill_by_name() {
+  if [ "$#" -eq  "0"  ]
+    then
+      echo "No arguments supplied"
+  else
+    MYPROCS=$(ps aux | grep "$1" | grep -v "grep" | awk '{print $2}')
+    echo "Process count: "; echo $MYPROCS | wc -w && kill -9 $MYPROCS
+  fi
+}
+
