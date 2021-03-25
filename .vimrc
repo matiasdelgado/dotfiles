@@ -71,6 +71,9 @@ set shiftwidth=2
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:·
 set list
 
+" Show search count
+set shortmess-=S
+
 map <C-J> :bnext<CR>
 map <C-K> :bprev<CR>
 
