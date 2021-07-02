@@ -1,7 +1,7 @@
 # dotfiles
 
 ## .vimrc
-Minimalist (?) configuration. 
+Minimalist (?) configuration.
 Installed plugins:
 * ale
 * editorconfig.vim
@@ -42,8 +42,21 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-Create symbolic link in the appropriate directory: 
+Create symbolic link in the appropriate directory:
 ```bash
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/custom ~/.vim/custom
 ```
+
+<details>
+  <summary>
+  Elixir Language Server setup
+  </summary
+
+1. git clone https://github.com/elixir-lsp/elixir-ls.git
+2. cd elixir-ls
+3. mix deps.get
+4. mix compile
+5. MIX_ENV=prod mix elixir_ls.release
+</details>
