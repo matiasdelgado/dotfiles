@@ -1,0 +1,33 @@
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+[pull]
+  ff = only
+  rebase = true
+[core]
+  diff = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Date|added|deleted|modified): '
+[diff]
+  compactionHeuristic = true
+  algorithm = histogram
+  renames = true
+[color "diff-highlight"]
+  oldNormal = red
+  oldHighlight = red bold 88
+  newNormal = green
+  newHighlight = green bold 58
+[color "diff"]
+  old = red
+  new = green
+  whitespace = red reverse
+  meta = 3
+  frag = 4
+  func = 0
+  commit = yellow bold
+[diff-so-fancy]
+  stripLeadingSymbols = false
+  rulerWidth = 80
+  markEmptyLines = false
+[color]
+  ui = true
