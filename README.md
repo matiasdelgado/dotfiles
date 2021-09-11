@@ -19,6 +19,7 @@ Installed plugins:
 * vim-test
 
 ### Color schemes
+* [dracula](https://github.com/dracula/vim)
 * [gruvbox](https://github.com/morhetz/gruvbox)
 * [vim-one](https://github.com/rakr/vim-one)
 
@@ -59,4 +60,11 @@ ln -s ~/dotfiles/custom ~/.vim/custom
 3. mix deps.get
 4. mix compile
 5. MIX_ENV=prod mix elixir_ls.release
+</details>
+<details>
+  <summary>
+  Italics setup with tmux
+  </summary>
+  * [How to actually get italics and true colour to work in iTerm + tmux + vim](https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be#:~:text=Configure%20iTerm,to%20xterm%2D256color%2Ditalic%20. )
+  * [Enabling italics in Vim and tmux](https://rsapkf.xyz/blog/enabling-italics-vim-tmux)
 </details>

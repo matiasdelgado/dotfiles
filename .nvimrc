@@ -1,15 +1,15 @@
-
 set nocompatible
 filetype off
-call plug#begin()
+call plug#begin(stdpath('data') . '/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
-Plug 'janko-m/vim-test', { 'on': ['TestNearest', 'TestLast', 'TestFile', 'TestSuite', 'TestVisit'] }
+Plug 'janko-m/vim-test'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/0.x' }
 Plug 'junegunn/fzf.vim'
 Plug 'slim-template/vim-slim'
@@ -17,16 +17,13 @@ Plug 'mattn/emmet-vim'
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'kshenoy/vim-signature'
+Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
 Plug 'ruanyl/vim-gh-line'
 Plug 'zivyangll/git-blame.vim'
 Plug 'tommcdo/vim-exchange'
-Plug 'wesQ3/vim-windowswap'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 call plug#end()
 
 filetype plugin indent on
@@ -38,7 +35,7 @@ set encoding=utf-8
 syntax enable
 
 if (has("termguicolors"))
-  set termguicolors
+  set termguicolors " enable true colors support
 endif
 let g:dracula_colorterm = 0
 let g:dracula_italic = 1
@@ -70,8 +67,7 @@ set softtabstop=2
 set expandtab
 set shiftwidth=2
 
-" set showbreak=↪\
-set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:·
+set listchars=tab:‚Üí\ ,eol:‚Ü≤,nbsp:‚ê£,trail:¬∑
 set list
 
 " Show search count
