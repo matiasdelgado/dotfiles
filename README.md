@@ -28,10 +28,8 @@ Clone [repo](https://github.com/dfurnes/purer) in `"$HOME/.zsh/pure"`. Set the p
 
 To have commands colorized install [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting).
 
-## .bash_prompt, .aliases
-Based on [@mathiasbynes's](https://github.com/mathiasbynens/dotfiles)
-
-Add to the bash_profile or zprofile:
+## .aliases
+Add to the `.zshrc`:
 ```
 source ~/dotfiles/.aliases
 ```
