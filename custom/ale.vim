@@ -21,6 +21,7 @@ let g:ale_sign_column_always = 1
 let g:ale_elixir_credo_strict = 1
 let g:ale_fix_on_save = 1
 
-nnoremap dt :ALEGoToDefinition<cr>
-nnoremap df :ALEFix<cr>
+nnoremap gD :ALEGoToDefinition<cr>
+nnoremap gR :ALEFindReferences<cr>
+" nnoremap df :ALEFix<cr>
 nnoremap K :ALEHover<cr>
