@@ -18,10 +18,15 @@ Installed plugins:
 * vim-surround
 * vim-test
 
-### Color schemes
+### Vim color schemes
 * [dracula](https://github.com/dracula/vim)
 * [gruvbox](https://github.com/morhetz/gruvbox)
 * [vim-one](https://github.com/rakr/vim-one)
+
+### Emulator colors (Purer theme)
+Clone [repo](https://github.com/dfurnes/purer) in `"$HOME/.zsh/pure"`. Set the prompt in `.zshrc`.
+
+To have commands colorized install [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting).
 
 ## .bash_prompt, .aliases
 Based on [@mathiasbynes's](https://github.com/mathiasbynens/dotfiles)
