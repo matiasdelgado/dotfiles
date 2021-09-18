@@ -13,3 +13,5 @@ prompt purer
 autoload -Uz compinit && compinit
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export CLICOLOR=1
