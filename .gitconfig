@@ -7,7 +7,7 @@
   ff = only
   rebase = true
 [core]
-  diff = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Date|added|deleted|modified): '
+  pager = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Date|added|deleted|modified): '
 [diff]
   compactionHeuristic = true
   algorithm = histogram
@@ -26,8 +26,10 @@
   func = 0
   commit = yellow bold
 [diff-so-fancy]
-  stripLeadingSymbols = false
+  stripLeadingSymbols = true
   rulerWidth = 80
   markEmptyLines = false
 [color]
   ui = true
+[interactive]
+  diffFilter = diff-so-fancy --patch
