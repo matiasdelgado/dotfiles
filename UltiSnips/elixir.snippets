@@ -12,6 +12,10 @@ snippet ins "IO.inspect"
 IO.inspect ${0}
 endsnippet
 
+snippet insv "IO.inspect selection"
+IO.inspect(${0:${VISUAL}})
+endsnippet
+
 snippet insl "IO.inspect with label"
 IO.inspect(${0}label: "${1:label}")
 endsnippet
