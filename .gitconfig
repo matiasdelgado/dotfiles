@@ -3,11 +3,13 @@
   br = branch
   ci = commit
   st = status
+  cian = commit --amend --no-edit
+  l1 = 'log --oneline -1'
 [pull]
   ff = only
   rebase = true
 [core]
-  pager = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Date|added|deleted|modified): '
+  pager = diff-so-fancy | less --tabs=4 -RFXS
 [diff]
   compactionHeuristic = true
   algorithm = histogram
