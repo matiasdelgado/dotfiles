@@ -25,6 +25,10 @@ IO.inspect "----------------------------------"
 IO.inspect ${0}
 endsnippet
 
+snippet printstack "Print stack trace"
+IO.inspect(Process.info(self(), :current_stacktrace), label: "STACKTRACE")
+endsnippet
+
 snippet if "if .. do .. end"
 if ${1} do
 	${0:${VISUAL}}
