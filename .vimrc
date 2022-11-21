@@ -80,8 +80,12 @@ set list
 " Show search count
 set shortmess-=S
 
-map <C-J> :bnext<CR>
-map <C-K> :bprev<CR>
+" map <C-J> :bnext<CR>
+" map <C-K> :bprev<CR>
+map <C-J> <C-W><C-J>
+map <C-K> <C-W><C-K>
+map <C-H> <C-W><C-H>
+map <C-L> <C-W><C-L>
 
 set splitbelow
 set splitright
