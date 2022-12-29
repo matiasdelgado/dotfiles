@@ -51,6 +51,18 @@ Create symbolic link in the appropriate directory:
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/custom ~/.vim/custom
+ln -s ~/dotfiles/nvim ~/.config/nvim
+ln -s ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
+```
+
+## Fonts
+DejaVuSansMono: [For nvim](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono) and vim [for Powerline](https://github.com/powerline/fonts/tree/master/DejaVuSansMono)
+
+## gitignore
+Use a global ignore file:
+```bash
+cp .gitignore ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
 ```
 
 <details>
