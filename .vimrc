@@ -21,13 +21,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'ruanyl/vim-gh-line'
 Plug 'zivyangll/git-blame.vim'
 Plug 'tommcdo/vim-exchange'
-Plug 'wesQ3/vim-windowswap'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'skywind3000/asyncrun.vim'
 call plug#end()
 
 filetype plugin indent on
