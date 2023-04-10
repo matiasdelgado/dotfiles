@@ -35,3 +35,11 @@
   ui = true
 [interactive]
   diffFilter = diff-so-fancy --patch
+[mergetool]
+  keepBackup = false
+[push]
+  autoSetupRemote = true
+[merge]
+  tool = vimdiff
+[mergetool "vimdiff"]
+  layout = LOCAL,BASE,REMOTE/MERGED
