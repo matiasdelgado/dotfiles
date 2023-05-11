@@ -1,0 +1,60 @@
+{ 
+  "testMethod": {
+    "prefix": "testMethod",
+    "body": [
+      "/**",
+      "* ${2}",
+      "*/",
+      "@isTest",
+      "static void ${1}() {",
+      "	 ${3}",
+      "}"
+    ],
+    "description": "Save content to file"
+  },
+  "debug": {
+    "prefix": "sd",
+    "body": [
+      "System.debug(${1});"
+    ],
+    "description": "Debug message"
+  },
+  "assert": {
+    "prefix": "assert",
+    "body": [
+      "System.assert(${1}, '${2}');"
+    ],
+    "description": "Assertion"
+  },
+  "asse": {
+    "prefix": "asse",
+    "body": [
+      "System.assertEquals(${1}, ${2}, '${3}');"
+    ],
+    "description": "AssertEquals"
+  },
+  "assne": {
+    "prefix": "assne",
+    "body": [
+      "System.assertNotEquals(${1}, ${2}, '${3}');"
+    ],
+    "description": "AssertNotEquals"
+  },
+  "list": {
+    "prefix": "list",
+    "body": [
+      "List<${1}> ${2} = new List<$1>();"
+    ],
+    "description": "AssertNotEquals"
+  },
+  "generic_class": {
+    "prefix": "list",
+    "body": [
+      "public ${1:with} sharing class ${2:`!p snip.rv=snip.basename`} {",
+      "  ${4}",
+      "}"
+    ],
+    "description": "AssertNotEquals"
+  }
+}
+

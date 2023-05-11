@@ -80,20 +80,27 @@ local opts = {
 
 local mappings = {
   ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').buffers()<cr>",
     "Buffers",
   },
   ["e"] = { "<cmd>Ex<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
+  -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').find_files()<cr>",
     "Find files",
   },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["x"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+
+  y = {
+    name = "Yank file name",
+    n = { "<cmd>:let @+ = expand('%:t')<cr>", "File name" },
+    r = { "<cmd>:let @+ = expand('%')<cr>", "Relative file path" },
+    a = { "<cmd>:let @+ = expand('%:p')<cr>", "Absolute file path" }
+  },
 
   p = {
     name = "Packer",
@@ -106,6 +113,7 @@ local mappings = {
 
   g = {
     name = "Git",
+    s = { "<cmd>call gitblame#echo()<CR>", "Blame current line" },
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -155,7 +163,7 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
 
-  t = {
+  r = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },

@@ -1,126 +1,43 @@
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  resolve_timeout = 800;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = {
-    border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
-    winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-    max_width = 120,
-    min_width = 60,
-    max_height = math.floor(vim.o.lines * 0.3),
-    min_height = 1,
-  };
-
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-    ultisnips = true;
-    luasnip = true;
-  };
-}
-
-local lspconfig = require("lspconfig")
-local cmp_nvim_lsp = require('cmp_nvim_lsp')
-
--- Neovim doesn't support snippets out of the box, so we need to mutate the
--- capabilities we send to the language server to let them know we want snippets.
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
-local capabilities = cmp_nvim_lsp.default_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
--- Setup our autocompletion. These configuration options are the default ones
--- copied out of the documentation.
-local cmp = require("cmp")
-
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      -- For `vsnip` user.
-      vim.fn["vsnip#anonymous"](args.body)
-    end,
-  },
-  mapping = {
-    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.close(),
-    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-  },
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "vsnip" },
-  },
-  formatting = {
-    format = require("lspkind").cmp_format({
-      with_text = true,
-      menu = {
-        nvim_lsp = "[LSP]",
-      },
-    }),
-  },
-})
-
 -- A callback that will get called when a buffer connects to the language server.
 -- Here we create any key maps that we want to have on that buffer.
 local on_attach = function(_, bufnr)
-  local function map(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
-  local map_opts = {noremap = true, silent = true}
+  local map_opts = { buffer = true, noremap = true}
 
-  map("n", "df", "<cmd>lua vim.lsp.buf.formatting()<cr>", map_opts)
-  map("n", "gd", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", map_opts)
-  map("n", "dt", "<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
-  map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", map_opts)
-  map("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<cr>", map_opts)
-  map("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", map_opts)
-  map("n", "1gD", "<cmd>lua vim.lsp.buf.type_definition()<cr>", map_opts)
+  -- run the codelens under the cursor
+  vim.keymap.set("n", "<space>r",  vim.lsp.codelens.run, map_opts)
+  -- remove the pipe operator
+  vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", map_opts)
+  -- add the pipe operator
+  vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", map_opts)
+  vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", map_opts)
 
-  -- These have a different style than above because I was fiddling
-  -- around and never converted them. Instead of converting them
-  -- now, I'm leaving them as they are for this article because this is
-  -- what I actually use, and hey, it works ¯\_(ツ)_/¯.
-  vim.cmd [[imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']]
-  vim.cmd [[smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']]
-
-  vim.cmd [[imap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']]
-  vim.cmd [[smap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']]
-  vim.cmd [[imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']]
-  vim.cmd [[smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']]
-
-  vim.cmd [[inoremap <silent><expr> <C-Space> compe#complete()]]
-  vim.cmd [[inoremap <silent><expr> <CR> compe#confirm('<CR>')]]
-  vim.cmd [[inoremap <silent><expr> <C-e> compe#close('<C-e>')]]
-  vim.cmd [[inoremap <silent><expr> <C-f> compe#scroll({ 'delta': +4 })]]
-  vim.cmd [[inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })]]
-
-  -- tell nvim-cmp about our desired capabilities
-  -- cmp_nvim_lsp.update_capabilities(capabilities)
+  -- standard lsp keybinds
+  vim.keymap.set("n", "df", "<cmd>lua vim.lsp.buf.formatting_seq_sync()<cr>", map_opts)
+  vim.keymap.set("n", "gd", "<cmd>lua vim.diagnostic.open_float()<cr>", map_opts)
+  vim.keymap.set("n", "dt", "<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
+  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", map_opts)
+  vim.keymap.set("n", "gD","<cmd>lua vim.lsp.buf.implementation()<cr>", map_opts)
+  vim.keymap.set("n", "1gD","<cmd>lua vim.lsp.buf.type_definition()<cr>", map_opts)
+  -- keybinds for fzf-lsp.nvim: https://github.com/gfanto/fzf-lsp.nvim
+  -- you could also use telescope.nvim: https://github.com/nvim-telescope/telescope.nvim
+  -- there are also core vim.lsp functions that put the same data in the loclist
+  vim.keymap.set("n", "gr", ":References<cr>", map_opts)
+  vim.keymap.set("n", "g0", ":DocumentSymbols<cr>", map_opts)
+  vim.keymap.set("n", "gW", ":WorkspaceSymbols<cr>", map_opts)
+  vim.keymap.set("n", "<leader>d", ":Diagnostics<cr>", map_opts)
 end
 
--- local path_to_elixirls = vim.fn.expand("~/.cache/nvim/lspconfig/elixirls/elixir-ls/release/language_server.sh")
-lspconfig.elixirls.setup({
-  cmd = {"/Users/matias/work/elixir-ls/release/language_server.sh"},
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require("elixir").setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
     elixirLS = {
       dialyzerEnabled = false,
+      enableTestLenses = true,
       fetchDeps = false
     }
   }
 })
-

@@ -52,6 +52,8 @@ ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/custom ~/.vim/custom
 ln -s ~/dotfiles/nvim ~/.config/nvim
+ln -s ~/dotfiles/syntax ~/.config/nvim/syntax
+ln -s ~/dotfiles/ftdetect ~/.config/nvim/ftdetect
 ln -s ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 ```
 

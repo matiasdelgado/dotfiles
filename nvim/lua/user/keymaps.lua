@@ -24,6 +24,7 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<CR>", ":noh<CR><CR>:<backspace>", opts) -- Clear search highlight
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -53,6 +54,10 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
+
+-- Find selection
+keymap("v", "//", 'y/<C-R>"<CR>', opts)
+keymap("v", "<leader>ss", 'y:%s/<C-R>"//g<left><left>', opts)
 
 -- Visual Block --
 -- Move text up and down

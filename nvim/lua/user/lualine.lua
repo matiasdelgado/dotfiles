@@ -1,28 +1,28 @@
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
-	return
+  return
 end
 
 local hide_in_width = function()
-	return vim.fn.winwidth(0) > 80
+  return vim.fn.winwidth(0) > 80
 end
 
 local diff = {
-	"diff",
-	colored = false,
-	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+  "diff",
+  colored = false,
+  symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
   cond = hide_in_width
 }
 
 local filetype = {
-	"filetype",
-	icons_enabled = false,
-	icon = nil,
+  "filetype",
+  icons_enabled = false,
+  icon = nil,
 }
 
 local location = {
-	"location",
-	padding = 0,
+  "location",
+  padding = 0,
 }
 
 local filename = {
@@ -40,30 +40,30 @@ local filename = {
 }
 
 lualine.setup({
-	options = {
-		icons_enabled = true,
-		theme = "dracula",
-		component_separators = { left = "", right = ""},
+  options = {
+    icons_enabled = true,
+    theme = "dracula",
+    component_separators = { left = "", right = ""},
     section_separators = { left = "", right = ""},
-		disabled_filetypes = { "dashboard", "Outline" },
-		always_divide_middle = true,
-	},
-	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "diagnostics", diff },
-		lualine_c = { filename },
-		lualine_x = { filetype },
-		lualine_y = { "encoding" },
-		lualine_z = { "progress", location }
-	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
-		lualine_y = {},
-		lualine_z = {},
-	},
-	tabline = {},
-	extensions = {},
+    disabled_filetypes = { "dashboard", "Outline" },
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = { "mode" },
+    lualine_b = { "diagnostics", diff },
+    lualine_c = { filename },
+    lualine_x = { filetype },
+    lualine_y = { "encoding" },
+    lualine_z = { "progress", location }
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { "filename" },
+    lualine_x = { "location" },
+    lualine_y = {},
+    lualine_z = {},
+  },
+  tabline = {},
+  extensions = {},
 })

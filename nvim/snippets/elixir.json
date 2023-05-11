@@ -1,0 +1,33 @@
+{ 
+  "file_save": {
+    "prefix": "file_save",
+    "body": [
+      "{:ok, file} = File.open(\"${1:test.html}\", [:write])",
+      "IO.binwrite(file,${0})",
+      "File.close(file)"
+    ],
+    "description": "Save content to file"
+  },
+  "inspect_debug": {
+    "prefix": "inst",
+    "body": [
+      "IO.inspect \"----------------------------------\"",
+      "IO.inspect ${0}"
+    ],
+    "description": "Debug message"
+  },
+  "inspect_selection": {
+    "prefix": "insv",
+    "body": [
+      "IO.inspect(${0:${VISUAL}})"
+    ],
+    "description": "Inspect selection"
+  },
+  "stack_trace": {
+    "prefix": "printstack",
+    "body": [
+      "IO.inspect(Process.info(self(), :current_stacktrace), label: \"STACKTRACE\")"
+    ],
+    "description": "Print stack trace"
+  }
+}
