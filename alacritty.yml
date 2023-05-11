@@ -33,22 +33,26 @@ draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)
 font:
-  # The normal (roman) font face to use.
+  # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono
   normal:
-    family: Monaco
-    options: { style: Regular }
-    family: DejaVu Sans Mono for Powerline
+    # family: Monaco
+    # options: { style: Regular }
+    family: DejaVuSansMono Nerd Font Mono
     options: { style: Book }
+    # family: DejaVu Sans Mono for Powerline
+    # options: { style: Book }
 
-  # The bold font face
   bold:
-    family: Monaco
-    options: { style: Regular }
+    family: DejaVuSansMono Nerd Font Mono
+    options: { style: Bold }
+    # family: DejaVu Sans Mono for Powerline
+    # options: { style: Bold }
 
-  # # The italic font face
   italic:
-    family: Monaco
-    options: { style: Regular }
+    family: DejaVuSansMono Nerd Font Mono
+    options: { style: Oblique }
+    # family: DejaVu Sans Mono for Powerline
+    # options: { style: Oblique }
 
   # # Point size of the font
   size: 12.0

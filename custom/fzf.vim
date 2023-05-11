@@ -18,6 +18,9 @@ command! -bang -nargs=* Rga
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
+" To support filtering by file extension: Rgf pattern -telixir, Rgf pattern -g '*.json'
+command! -bang -nargs=* Rgf call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".<q-args>, 1, <bang>0)
+
 " An action can be a reference to a function that processes selected lines
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
@@ -32,7 +35,7 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit',
   \ 'ctrl-o': 'tab drop' }
 
-" let g:fzf_layout = { 'down': '~40%'  }
+let g:fzf_layout = { 'down': '~40%'  }
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all --height 40% --border'
 
