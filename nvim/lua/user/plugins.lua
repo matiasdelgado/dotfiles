@@ -81,6 +81,9 @@ return packer.startup(function(use)
   use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
+  -- Tests
+  use { "vim-test/vim-test", requires = { "skywind3000/asyncrun.vim" } }
+
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac" }
 
