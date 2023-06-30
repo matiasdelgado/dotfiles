@@ -70,10 +70,39 @@ return packer.startup(function(use)
   use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
 
   -- LSP
-  use { "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" } -- enable LSP
-  use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12"} -- simple to use language server installer
-  use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
+  -- use { "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" } -- enable LSP
+  -- use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12"} -- simple to use language server installer
+  -- use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
   use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
+  use {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
+    requires = {
+      -- LSP Support
+      { "neovim/nvim-lspconfig" }, -- Required
+      {
+        -- Optional
+        "williamboman/mason.nvim",
+        run = function()
+          pcall(vim.cmd, "MasonUpdate")
+        end,
+      },
+      { "williamboman/mason-lspconfig.nvim" }, -- Optional
+
+      -- Autocompletion
+      { "hrsh7th/nvim-cmp" },     -- Required
+      { "hrsh7th/cmp-nvim-lsp" }, -- Required
+      { "hrsh7th/cmp-nvim-lua" },
+      { "rafamadriz/friendly-snippets" },
+      -- { "honza/vim-snippets" },
+      {
+        "quangnguyen30192/cmp-nvim-ultisnips",
+        config = function()
+          require("cmp_nvim_ultisnips").setup({})
+        end
+      }
+    }
+  }
   -- use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" } -- automatically highlighting other uses of the word under the cursor
   use { "onsails/lspkind-nvim" }
 
@@ -90,6 +119,9 @@ return packer.startup(function(use)
   -- Elixir
   use { "elixir-tools/elixir-tools.nvim", requires = { "nvim-lua/plenary.nvim", "hrsh7th/cmp-nvim-lsp" }}
 
+  -- Slim
+  use { 'slim-template/vim-slim' }
+
   -- Surround
   use { "kylechui/nvim-surround", tag = "*" }
 
@@ -97,10 +129,8 @@ return packer.startup(function(use)
   use { "kshenoy/vim-signature" }
 
   -- Git
-  -- use { "f-person/git-blame.nvim" }
-  use { "zivyangll/git-blame.vim" }
-  -- use { "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" }
-  -- use { "f-person/git-blame.nvim", commit = "d3afb1c57918720548effb42edec530232436378"}
+  use { "tpope/vim-fugitive" }
+  use { "ruanyl/vim-gh-line" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

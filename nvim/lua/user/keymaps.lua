@@ -6,14 +6,14 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-  -- keymap("", "<Space>", "<Nop>", opts)
-  -- vim.g.mapleader = " "
-  -- vim.g.maplocalleader = " "
+-- keymap("", "<Space>", "<Nop>", opts)
+-- vim.g.mapleader = " "
+-- vim.g.maplocalleader = " "
 
-  -- Modes
-  --   normal_mode = "n",
-  --   insert_mode = "i",
-  --   visual_mode = "v",
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
@@ -41,9 +41,17 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
+
+-- Commands --
+keymap("c", "Q", "q", opts)
+keymap("c", "W", "w", opts)
+keymap("c", "Bd", "bd", opts)
+keymap("c", "Qa", "qa", opts)
+keymap("c", "Wa", "wa", opts)
+keymap("c", "Tabe", "tabe", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -57,12 +65,12 @@ keymap("v", "p", '"_dP', opts)
 
 -- Find selection
 keymap("v", "//", 'y/<C-R>"<CR>', opts)
-keymap("v", "<leader>ss", 'y:%s/<C-R>"//g<left><left>', opts)
+keymap("v", "<leader>r", 'y:%s/<C-R>"//g<left><left>', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "C-j", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "C-k", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
@@ -72,4 +80,3 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-

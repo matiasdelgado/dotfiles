@@ -84,7 +84,7 @@ local mappings = {
     "Buffers",
   },
   ["e"] = { "<cmd>Ex<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
+  -- ["w"] = { "<cmd>w!<CR>", "Save" },
   -- ["q"] = { "<cmd>q!<CR>", "Quit" },
   -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -93,39 +93,18 @@ local mappings = {
     "Find files",
   },
   ["x"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  -- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
-  y = {
-    name = "Yank file name",
-    n = { "<cmd>:let @+ = expand('%:t')<cr>", "File name" },
-    r = { "<cmd>:let @+ = expand('%')<cr>", "Relative file path" },
-    a = { "<cmd>:let @+ = expand('%:p')<cr>", "Absolute file path" }
-  },
-
-  p = {
-    name = "Packer",
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
-  },
-
-  g = {
-    name = "Git",
-    s = { "<cmd>call gitblame#echo()<CR>", "Blame current line" },
-    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-  },
-
-  l = {
-    name = "LSP",
+  d = {
+    name = "Code / LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     d = {
-      "<cmd>Telescope diagnostics bufnr=0<cr>",
-      "Document Diagnostics",
+      "<cmd>lua vim.lsp.buf.definition()<cr>",
+      "Go to definition",
+    },
+    h = {
+      "<cmd>lua vim.lsp.buf.hover()<cr>",
+      "Hover"
     },
     w = {
       "<cmd>Telescope diagnostics<cr>",
@@ -144,19 +123,32 @@ local mappings = {
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-    S = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Workspace Symbols",
-    },
+    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" }
+  },
+  g = {
+    name = "Git",
+    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    s = { "<cmd>GitBlameCurrent<cr>", "Blame current line"}
+  },
+  o = {
+    name = "Open in browser",
+    b = { "<cmd>:!open % -a \"Microsoft Edge\"<cr>", "Open File" },
+    p = { "<cmd>ViewPr<cr>", "Pull Request" }
+  },
+  p = {
+    name = "Packer",
+    c = { "<cmd>PackerCompile<cr>", "Compile" },
+    i = { "<cmd>PackerInstall<cr>", "Install" },
+    s = { "<cmd>PackerSync<cr>", "Sync" },
+    S = { "<cmd>PackerStatus<cr>", "Status" },
+    u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
   r = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
@@ -177,6 +169,12 @@ local mappings = {
     n = { "<cmd>TestNearest<CR>", "N nearest" },
     f = { "<cmd>TestFile<CR>", "File" },
     l = { "<cmd>TestLast<CR>", "Last" }
+  },
+  y = {
+    name = "Yank",
+    n = { "<cmd>:let @+ = expand('%:t')<cr>", "File name" },
+    r = { "<cmd>:let @+ = expand('%')<cr>", "Relative file path" },
+    a = { "<cmd>:let @+ = expand('%:p')<cr>", "Absolute file path" }
   }
 }
 

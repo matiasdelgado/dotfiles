@@ -50,7 +50,7 @@ lualine.setup({
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = { "diagnostics", diff },
+    lualine_b = { "branch", "diagnostics", diff },
     lualine_c = { filename },
     lualine_x = { filetype },
     lualine_y = { "encoding" },
