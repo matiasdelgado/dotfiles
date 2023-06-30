@@ -28,6 +28,8 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 filetype plugin indent on
@@ -43,9 +45,12 @@ if (has("termguicolors"))
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-let g:dracula_colorterm = 0
-let g:dracula_italic = 1
-colorscheme dracula
+" let g:dracula_colorterm = 0
+" let g:dracula_italic = 1
+" colorscheme dracula
+let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
 
 " Allow per-project configuration files
 set exrc
@@ -121,7 +126,7 @@ nnoremap <CR> :noh<CR><CR>:<backspace>
 vnoremap // y/<C-R>"<CR>
 
 " Replace selection
-vnoremap <leader>ss y:%s/<C-R>"//g<left><left>
+vnoremap <leader>r y:%s/<C-R>"//g<left><left>
 
 " Open file explorer
 nmap <silent> <leader>e :Ex<CR>
@@ -129,6 +134,7 @@ nmap <silent> <leader>e :Ex<CR>
 " Allow uppercase commands
 command W w
 command Q q
+command Bd bd
 command Qa qa
 command Wa wa
 command Tabe tabe
