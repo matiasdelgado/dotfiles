@@ -4,7 +4,6 @@ function! ViewPr()
 
   let git_cmd = 'git blame -L' . line_number . ',+1 --porcelain -- ' . current_buff
   let grep_cmd = 'grep summary'
-  let sed_cmd = 'pending'
   let sed_cmd = 'sed -E "s/.*\(#(.*)\).*/\1/"'
   let pr_number = system(git_cmd .' | '. grep_cmd .' | '. sed_cmd)
 
