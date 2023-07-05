@@ -1,5 +1,6 @@
 source ~/work/dotfiles/.aliases
 source ~/work/dotfiles/functions/v
+source ~/work/dotfiles/functions/n
 source ~/work/dotfiles/functions/gch
 source ~/work/dotfiles/functions/vimcommit
 # fpath+=~/Projects/dotfiles/functions

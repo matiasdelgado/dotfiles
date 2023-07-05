@@ -7,6 +7,8 @@ local options = {
   fileencoding = "utf-8",                  -- the encoding written to a file
   hlsearch = true,                         -- highlight all matches on previous search pattern
   ignorecase = true,                       -- ignore case in search patterns
+  list = true,                             -- show list chars
+  listchars = { tab="→ ", eol="↲", nbsp="␣", trail="·" },
   mouse = "a",                             -- allow the mouse to be used in neovim
   pumheight = 10,                          -- pop up menu height
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
@@ -32,19 +34,25 @@ local options = {
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
   wrap = false,                            -- display lines as one long line
   linebreak = true,                        -- companion to wrap, don't split words
-  scrolloff = 8,                           -- minimal number of screen lines to keep above and below the cursor
+  scrolloff = 4,                           -- minimal number of screen lines to keep above and below the cursor
   sidescrolloff = 8,                       -- minimal number of screen columns either side of cursor if wrap is `false`
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
-  whichwrap = "bs<>[]hl",                  -- which "horizontal" keys are allowed to travel to prev/next line
+  whichwrap = "bs<>[]hl"                   -- which "horizontal" keys are allowed to travel to prev/next line
+}
+
+local globals = {
+  netrw_banner = 0                         -- hide netrw banner
 }
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+for k, v in pairs(globals) do
+  vim.g[k] = v
+end
 -- vim.opt.shortmess = "ilmnrx"                        -- flags to shorten vim messages, see :help 'shortmess'
 vim.opt.shortmess:append "c"                           -- don't give |ins-completion-menu| messages
 vim.opt.iskeyword:append "-"                           -- hyphenated words recognized by searches
 vim.opt.formatoptions:remove({ "c", "r", "o" })        -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles")  -- separate vim plugins from neovim in case vim still in use
-
