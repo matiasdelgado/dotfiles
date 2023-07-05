@@ -79,22 +79,10 @@ local opts = {
 }
 
 local mappings = {
-  ["b"] = {
+  b = {
     "<cmd>lua require('telescope.builtin').buffers()<cr>",
     "Buffers",
   },
-  ["e"] = { "<cmd>Ex<cr>", "Explorer" },
-  -- ["w"] = { "<cmd>w!<CR>", "Save" },
-  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
-  -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>",
-    "Find files",
-  },
-  ["x"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-  -- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-
   d = {
     name = "Code / LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -106,28 +94,41 @@ local mappings = {
       "<cmd>lua vim.lsp.buf.hover()<cr>",
       "Hover"
     },
-    w = {
-      "<cmd>Telescope diagnostics<cr>",
-      "Workspace Diagnostics",
-    },
     f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
-      "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+      "<cmd>lua vim.diagnostic.goto_next()<CR>",
       "Next Diagnostic",
     },
     k = {
-      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+      "<cmd>lua vim.diagnostic.goto_prev()<cr>",
       "Prev Diagnostic",
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+    o = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Open float"},
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" }
+    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+    s = {
+      "<cmd>split|lua vim.lsp.buf.definition()<cr>",
+      "Go to definition - horizontal split",
+    },
+    v = {
+      "<cmd>vsplit|lua vim.lsp.buf.definition()<cr>",
+      "Go to definition - vertical split",
+    },
+    w = {
+      "<cmd>Telescope diagnostics<cr>",
+      "Workspace Diagnostics",
+    }
+  },
+  e = { "<cmd>Ex<cr>", "Explorer" },
+  f = {
+    "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>",
+    "Find files",
   },
   g = {
     name = "Git",
-    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
@@ -155,8 +156,6 @@ local mappings = {
   },
   s = {
     name = "Search",
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
@@ -166,10 +165,11 @@ local mappings = {
   },
   t = {
     name = "Tests",
-    n = { "<cmd>TestNearest<CR>", "N nearest" },
+    n = { "<cmd>TestNearest<CR>", "Nearest" },
     f = { "<cmd>TestFile<CR>", "File" },
     l = { "<cmd>TestLast<CR>", "Last" }
   },
+  x = { "<cmd>Telescope live_grep<cr>", "Find Text" },
   y = {
     name = "Yank",
     n = { "<cmd>:let @+ = expand('%:t')<cr>", "File name" },
