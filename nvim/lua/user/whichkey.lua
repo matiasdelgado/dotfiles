@@ -90,13 +90,12 @@ local mappings = {
       "<cmd>lua vim.lsp.buf.definition()<cr>",
       "Go to definition",
     },
+    f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
     h = {
       "<cmd>lua vim.lsp.buf.hover()<cr>",
       "Hover"
     },
-    f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
-    I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
       "<cmd>lua vim.diagnostic.goto_next()<CR>",
       "Next Diagnostic",
@@ -110,11 +109,11 @@ local mappings = {
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = {
-      "<cmd>split|lua vim.lsp.buf.definition()<cr>",
+      "<C-w>]",
       "Go to definition - horizontal split",
     },
     v = {
-      "<cmd>vsplit|lua vim.lsp.buf.definition()<cr>",
+      "<C-w>] <C-w>L",
       "Go to definition - vertical split",
     },
     w = {
