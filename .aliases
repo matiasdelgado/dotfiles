@@ -21,3 +21,4 @@ alias mux="tmuxinator"
 alias dc="docker compose"
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias csvtojson="python3 -c 'import csv, json, sys; print(json.dumps([dict(r) for r in csv.DictReader(sys.stdin)]))'"
+alias pj='cd (find ~/work -type d -not -path "*/node_modules/*" -maxdepth 1 | fzf)'
