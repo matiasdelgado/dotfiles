@@ -79,10 +79,7 @@ local opts = {
 }
 
 local mappings = {
-  b = {
-    "<cmd>lua require('telescope.builtin').buffers()<cr>",
-    "Buffers",
-  },
+  b = { "<cmd>Buffers<cr>", "Buffers" },
   d = {
     name = "Code / LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -115,22 +112,13 @@ local mappings = {
     v = {
       "<C-w>] <C-w>L",
       "Go to definition - vertical split",
-    },
-    w = {
-      "<cmd>Telescope diagnostics<cr>",
-      "Workspace Diagnostics",
     }
   },
   e = { "<cmd>Ex<cr>", "Explorer" },
-  f = {
-    "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>",
-    "Find files",
-  },
+  f = { "<cmd>GFiles<cr>", "Find git files" },
+  F = { "<cmd>Files<cr>", "Find files" },
   g = {
     name = "Git",
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
     s = { "<cmd>GitBlameCurrent<cr>", "Blame current line"}
   },
   o = {
@@ -153,22 +141,13 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
-  s = {
-    name = "Search",
-    h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    R = { "<cmd>Telescope registers<cr>", "Registers" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
-  },
   t = {
     name = "Tests",
     n = { "<cmd>TestNearest<CR>", "Nearest" },
     f = { "<cmd>TestFile<CR>", "File" },
     l = { "<cmd>TestLast<CR>", "Last" }
   },
-  x = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+  x = { "<cmd>Find<cr>", "Find Text" },
   y = {
     name = "Yank",
     n = { "<cmd>:let @+ = expand('%:t')<cr>", "File name" },

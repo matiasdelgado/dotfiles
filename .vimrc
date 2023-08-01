@@ -97,11 +97,11 @@ set splitright
 
 set clipboard=unnamed
 " Copy file name
-nmap yfn :let @*=expand('%:t')<CR>
+nmap <leader>yn :let @*=expand('%:t')<CR>
 " Copy file name with project path
-nmap yfp :let @*=expand("%")<CR>
+nmap <leader>yr :let @*=expand("%")<CR>
 " Copy file name with full path
-nmap yffp :let @*=expand("%:p")<CR>
+nmap <leader>ya :let @*=expand("%:p")<CR>
 
 " Airline setup
 let g:airline_theme='dracula'

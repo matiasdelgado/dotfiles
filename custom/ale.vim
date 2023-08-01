@@ -22,9 +22,9 @@ let g:ale_sign_column_always = 1
 let g:ale_elixir_credo_strict = 1
 " let g:ale_fix_on_save = 1
 
-nnoremap gD :ALEGoToDefinition<cr>
-nnoremap gDS :ALEGoToDefinition -split<cr>
-nnoremap gDV :ALEGoToDefinition -vsplit<cr>
-nnoremap gR :ALEFindReferences<cr>
+nnoremap <leader>dd :ALEGoToDefinition<cr>
+nnoremap <leader>ds :ALEGoToDefinition -split<cr>
+nnoremap <leader>dv :ALEGoToDefinition -vsplit<cr>
+nnoremap <leader>dr :ALEFindReferences<cr>
+nnoremap <leader>dk :ALEHover<cr>
 " nnoremap df :ALEFix<cr>
-nnoremap K :ALEHover<cr>

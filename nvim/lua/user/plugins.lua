@@ -76,8 +76,12 @@ return packer.startup(function(use)
   use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
 
   -- Telescope
-  use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
-  use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+  -- use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
+  -- use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+  -- use { "vijaymarupudi/nvim-fzf" }
+  use { 'junegunn/fzf', run = ":call fzf#install()" }
+  use { 'junegunn/fzf.vim' }
+  -- use { "vijaymarupudi/nvim-fzf-commands" }
 
   -- Tests
   use { "vim-test/vim-test", requires = { "skywind3000/asyncrun.vim" } }
