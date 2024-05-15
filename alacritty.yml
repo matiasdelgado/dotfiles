@@ -37,20 +37,26 @@ font:
   normal:
     # family: Monaco
     # options: { style: Regular }
-    family: DejaVuSansMono Nerd Font Mono
-    options: { style: Book }
+    family: SFMono Nerd Font
+    options: { style: Regular }
+    # family: DejaVuSansMono Nerd Font Mono
+    # options: { style: Book }
     # family: DejaVu Sans Mono for Powerline
     # options: { style: Book }
 
   bold:
-    family: DejaVuSansMono Nerd Font Mono
+    family: SFMono Nerd Font
     options: { style: Bold }
+    # family: DejaVuSansMono Nerd Font Mono
+    # options: { style: Bold }
     # family: DejaVu Sans Mono for Powerline
     # options: { style: Bold }
 
   italic:
-    family: DejaVuSansMono Nerd Font Mono
-    options: { style: Oblique }
+    family: SFMono Nerd Font
+    options: { style: Light Italic }
+    # family: DejaVuSansMono Nerd Font Mono
+    # options: { style: Oblique }
     # family: DejaVu Sans Mono for Powerline
     # options: { style: Oblique }
 
@@ -73,7 +79,7 @@ font:
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
   # false.
-  use_thin_strokes: true
+  # use_thin_strokes: true # has been removed; set the AppleFontSmoothing user default instead: https://github.com/alacritty/alacritty/issues/4616#issuecomment-1236413444
 
 # Colors (Ayu Dark)
 # https://github.com/eendroroy/alacritty-theme
@@ -122,4 +128,5 @@ visual_bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1.0
+# background_opacity: 1.0
+window.opacity: 1.0

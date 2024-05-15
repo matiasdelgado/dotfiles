@@ -102,7 +102,7 @@ local mappings = {
       "Prev Diagnostic",
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    o = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Open float"},
+    o = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Open float" },
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = {
@@ -140,6 +140,9 @@ local mappings = {
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  },
+  s = {
+    "<cmd>lua require'user.switch_case'.switch_case()<CR>", "Switch case (snake_case <-> camelCase)",
   },
   t = {
     name = "Tests",

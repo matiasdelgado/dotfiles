@@ -48,7 +48,7 @@ nmap <Leader>T :Tags<CR>
 nmap <Leader>l :BLines<CR>
 nmap <Leader>L :Lines<CR>
 nmap <Leader>' :Marks<CR>
-nmap <Leader>r :Rg<Space>
+" nmap <Leader>r :Rg<Space> " Conflicts with Termina <leader>r
 nmap <Leader>H :Helptags!<CR>
 nmap <Leader>C :Commands<CR>
 nmap <Leader>: :History:<CR>

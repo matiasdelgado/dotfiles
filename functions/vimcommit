@@ -1,3 +1,3 @@
 vimcommit() {
-  vim -p $(git diff-tree --no-commit-id --name-only -r ${1:-HEAD})
+  nvim -p $(git diff-tree --no-commit-id --name-only -r ${1:-HEAD})
 }

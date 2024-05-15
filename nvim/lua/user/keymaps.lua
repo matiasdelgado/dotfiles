@@ -42,16 +42,18 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode
-keymap("i", "jk", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts)
+-- keymap("i", "jk", "<ESC>", opts)
+-- keymap("i", "kj", "<ESC>", opts)
 
 -- Commands --
-keymap("c", "Q", "q", opts)
-keymap("c", "W", "w", opts)
-keymap("c", "Bd", "bd", opts)
-keymap("c", "Qa", "qa", opts)
-keymap("c", "Wa", "wa", opts)
-keymap("c", "Tabe", "tabe", opts)
+-- https://superuser.com/a/1060644/1925249
+-- Using keymap("c", "Q", "q", opts) will always replace the Q, even when searching
+vim.api.nvim_create_user_command('Q','quit<bang>',{bang = true, bar = true})
+vim.api.nvim_create_user_command('W','<line1>,<line2>write<bang> <args>',{bang = true, bar = true, nargs = "*", complete = "file", range = "%"})
+vim.api.nvim_create_user_command('Bd','bdel<bang> <args>',{bang = true, bar = true, nargs = "*", complete = "buffer"})
+vim.api.nvim_create_user_command('Tabe','tabe',{})
+vim.api.nvim_create_user_command('Qa','qa<bang>',{bang = true})
+vim.api.nvim_create_user_command('Wa','wa<bang>',{bang = true})
 
 -- Visual --
 -- Stay in indent mode

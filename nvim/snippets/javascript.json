@@ -1,0 +1,16 @@
+{
+  "console_log": {
+    "prefix": "cl",
+    "body": [
+      "console.log($0);"
+    ],
+    "description": "Console debug"
+  },
+  "console_info": {
+    "prefix": "ci",
+    "body": [
+      "console.info($0);"
+    ],
+    "description": "Console info"
+  },
+}

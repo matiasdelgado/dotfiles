@@ -1,13 +1,14 @@
 local servers = {
   -- 'apex_ls',
-  'elixirls',
-  'tsserver',
-  'eslint',
+  -- 'elixirls',
+  "tsserver",
+  "eslint",
   -- 'lua_ls',
   "cssls",
   "html",
   "jsonls",
   "sumneko_lua",
+  -- "sqls"
   -- "pyright",
   -- "bashls",
   -- "yamlls",

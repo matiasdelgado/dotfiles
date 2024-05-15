@@ -14,11 +14,12 @@ alias dk="cd ~/Desktop"
 alias dm="cd ~/Documents"
 alias w="cd ~/work"
 
-alias vimu="vim -p \$(git status --porcelain | grep UU | awk '{print \$2}')"
-alias vimd="vim -p \$(git status --porcelain | awk '{print \$2}')"
+alias vimu="nvim -p \$(git status --porcelain | grep UU | awk '{print \$2}')"
+alias vimd="nvim -p \$(git status --porcelain | awk '{print \$2}')"
 alias wifi="security find-generic-password -wga "
 alias mux="tmuxinator"
 alias dc="docker compose"
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias csvtojson="python3 -c 'import csv, json, sys; print(json.dumps([dict(r) for r in csv.DictReader(sys.stdin)]))'"
 alias pj='cd (find ~/work -type d -not -path "*/node_modules/*" -maxdepth 1 | fzf)'
+alias sf-deploy='sfdx project deploy start --ignore-conflicts'

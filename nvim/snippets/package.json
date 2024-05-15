@@ -6,8 +6,16 @@
   "contributes": {
     "snippets": [
       {
+        "language": "javascript",
+        "path": "./javascript.json"
+      },
+      {
         "language": "elixir",
         "path": "./elixir.json"
+      },
+      {
+        "language": "apexcode",
+        "path": "./apex.json"
       }
     ]
   }

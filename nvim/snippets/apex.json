@@ -48,7 +48,7 @@
     "description": "AssertNotEquals"
   },
   "generic_class": {
-    "prefix": "list",
+    "prefix": "cl",
     "body": [
       "public ${1:with} sharing class ${2:`!p snip.rv=snip.basename`} {",
       "  ${4}",

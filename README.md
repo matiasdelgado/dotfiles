@@ -58,7 +58,8 @@ ln -s ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 ```
 
 ## Fonts
-DejaVuSansMono: [For nvim](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono) and vim [for Powerline](https://github.com/powerline/fonts/tree/master/DejaVuSansMono)
+* DejaVuSansMono: [For nvim](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono) and [Powerline for vim](https://github.com/powerline/fonts/tree/master/DejaVuSansMono)
+* [SFMono Nerd Font](https://github.com/epk/SF-Mono-Nerd-Font)
 
 ## gitignore
 Use a global ignore file:

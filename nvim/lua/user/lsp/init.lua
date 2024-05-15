@@ -6,3 +6,7 @@ end
 require "user.lsp.mason"
 require("user.lsp.handlers").setup()
 require "user.lsp.null-ls"
+
+require'lspconfig'.elixirls.setup{
+  cmd = { "/Users/matias.delgado/work/elixir-ls/language_server.sh" };
+}

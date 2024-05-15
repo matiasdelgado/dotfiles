@@ -44,8 +44,8 @@ vim.cmd [[
     autocmd FileType fzf tnoremap <buffer> <C-j> <C-n>
     autocmd FileType fzf tnoremap <buffer> <C-k> <C-p>
     " Scroll preview
-    autocmd FileType fzf tnoremap <buffer> <C-d> <S-down>
-    autocmd FileType fzf tnoremap <buffer> <C-u> <S-up>
+    autocmd FileType fzf tnoremap <buffer> <C-f> <S-down>
+    autocmd FileType fzf tnoremap <buffer> <C-b> <S-up>
   augroup end
 ]]
 
