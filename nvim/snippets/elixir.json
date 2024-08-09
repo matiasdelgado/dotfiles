@@ -92,5 +92,9 @@
   "test_module": {
     "prefix": "exunit",
     "body": ["defmodule ${1:$TM_FILENAME_BASE} do", "\tuse ExUnit.Case, async: true", "", "  ${0}", "end"]
+  },
+  "pipe": {
+    "prefix": "p",
+    "body": ["|> $0"]
   }
 }

@@ -23,3 +23,4 @@ alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias csvtojson="python3 -c 'import csv, json, sys; print(json.dumps([dict(r) for r in csv.DictReader(sys.stdin)]))'"
 alias pj='cd (find ~/work -type d -not -path "*/node_modules/*" -maxdepth 1 | fzf)'
 alias sf-deploy='sfdx project deploy start --ignore-conflicts'
+alias cbr='git branch --sort=-committerdate | fzf --header "Checkout recent branch" --preview "git diff {1} | diff-so-fancy" --pointer="#" | xargs git checkout'
