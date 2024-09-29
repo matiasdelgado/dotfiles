@@ -1,0 +1,88 @@
+tabspaces = 2
+"window.opacity" = 1.0
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#686868"
+blue = "#59C2FF"
+cyan = "#95E6CB"
+green = "#C2D94C"
+magenta = "#FFEE99"
+red = "#F07178"
+white = "#FFFFFF"
+yellow = "#FFB454"
+
+[colors.dim]
+black = "0x333333"
+blue = "0x6699cc"
+cyan = "0x66cccc"
+green = "0x99cc99"
+magenta = "0xcc99cc"
+red = "0xf2777a"
+white = "0xdddddd"
+yellow = "0xffcc66"
+
+[colors.normal]
+black = "#01060E"
+blue = "#53BDFA"
+cyan = "#90E1C6"
+green = "#91B362"
+magenta = "#FAE994"
+red = "#EA6C73"
+white = "#C7C7C7"
+yellow = "#F9AF4F"
+
+[colors.primary]
+background = "#0A0E14"
+foreground = "#B3B1AD"
+
+[font]
+size = 12.0
+
+[font.bold]
+family = "SFMono Nerd Font"
+
+[font.bold.options]
+style = "Bold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "SFMono Nerd Font"
+
+[font.italic.options]
+style = "Light Italic"
+
+[font.normal]
+family = "SFMono Nerd Font"
+
+[font.normal.options]
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[visual_bell]
+animation = "EaseOutExpo"
+duration = 0
+
+[window]
+decorations = "Buttonless"
+startup_mode = "Maximized"
+
+[window.dimensions]
+columns = 80
+lines = 24
+
+[window.padding]
+x = 5
+y = 10

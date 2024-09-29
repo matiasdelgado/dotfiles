@@ -65,7 +65,18 @@ cmp.setup {
     },
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<CR>"] = cmp.mapping.confirm { select = false },
+    -- ["<Tab>"] = function(core, fallback)
+    --     if vim.fn.pumvisible() == 1 then
+    --        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
+    --     elseif luasnip.expand_or_jumpable() then
+    --       vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+    --     elseif not check_backspace() then
+    --       cmp.mapping.complete()(core, fallback)
+    --     else
+    --       fallback()
+    --     end
+    --   end,
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -73,8 +84,8 @@ cmp.setup {
         luasnip.expand()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
-      elseif check_backspace() then
-        fallback()
+      --elseif check_backspace() then
+      --  fallback()
       else
         fallback()
       end
