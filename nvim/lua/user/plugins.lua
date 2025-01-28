@@ -93,7 +93,8 @@ return packer.startup(function(use)
 
   -- Others
   use { "tpope/vim-endwise" }
-  use { "chrisbra/csv.vim" }
+  -- use { "chrisbra/csv.vim" }
+  -- use { "github/copilot.vim" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -57,17 +57,17 @@ vim.api.nvim_create_user_command('Wa','wa<bang>',{bang = true})
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+keymap("x", "<", "<gv", opts)
+keymap("x", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+keymap("x", "<A-j>", ":m .+1<CR>==", opts)
+keymap("x", "<A-k>", ":m .-2<CR>==", opts)
+keymap("x", "p", '"_dP', opts)
 
 -- Find selection
-keymap("v", "//", 'y/<C-R>"<CR>', opts)
-keymap("v", "<leader>r", 'y:%s/<C-R>"//g<left><left>', opts)
+keymap("x", "//", 'y/<C-R>"<CR>', opts)
+keymap("x", "<leader>r", 'y:%s/<C-R>"//g<left><left>', opts)
 
 -- Visual Block --
 -- Move text up and down
