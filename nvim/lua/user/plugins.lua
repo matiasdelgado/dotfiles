@@ -93,8 +93,12 @@ return packer.startup(function(use)
 
   -- Others
   use { "tpope/vim-endwise" }
-  -- use { "chrisbra/csv.vim" }
-  -- use { "github/copilot.vim" }
+  use { "mfussenegger/nvim-dap" }
+  use { "elixir-tools/elixir-tools.nvim" }
+  use {
+    "olimorris/codecompanion.nvim",
+    requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
