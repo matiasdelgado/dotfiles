@@ -1,18 +1,5 @@
 local servers = {
-  -- "ts_ls",
-  -- "eslint",
-  -- "cssls",
-  -- "html",
-  -- "jsonls",
-  -- "lua_ls",
-
-  -- 'apex_ls',
-  -- 'elixirls',
-  -- 'lua_ls',
-  -- "sqls"
-  -- "pyright",
-  -- "bashls",
-  -- "yamlls",
+  -- Add any servers you want to ensure are installed
 }
 
 local settings = {
@@ -31,7 +18,11 @@ local settings = {
 require("mason").setup(settings)
 require("mason-lspconfig").setup({
   ensure_installed = servers,
-  automatic_installation = true,
+  automatic_installation = false,
+  -- Exclude omnisharp from automatic enabling to prevent conflicts
+  automatic_enable = {
+    exclude = { "omnisharp" }
+  },
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
@@ -39,10 +30,9 @@ if not lspconfig_status_ok then
   return
 end
 
-local opts = {}
-
+-- Manual setup for other servers in the list (if any)
 for _, server in pairs(servers) do
-  opts = {
+  local opts = {
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = require("user.lsp.handlers").capabilities,
     root_dir = lspconfig.util.find_git_ancestor
@@ -57,3 +47,9 @@ for _, server in pairs(servers) do
 
   lspconfig[server].setup(opts)
 end
+
+-- Manual OmniSharp setup with your custom configuration
+local omnisharp_opts = require("user.lsp.settings.omnisharp")
+omnisharp_opts.on_attach = require("user.lsp.handlers").on_attach
+omnisharp_opts.capabilities = require("user.lsp.handlers").capabilities
+lspconfig.omnisharp.setup(omnisharp_opts)

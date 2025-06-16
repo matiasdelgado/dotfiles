@@ -91,10 +91,12 @@ return packer.startup(function(use)
   use { "tpope/vim-fugitive" }
   use { "ruanyl/vim-gh-line" }
 
+  -- Roslyn for C#
+  -- use { "Hoffs/roslyn.nvim", run = ":PackerSync" }
+
   -- Others
   use { "tpope/vim-endwise" }
-  use { "mfussenegger/nvim-dap" }
-  use { "elixir-tools/elixir-tools.nvim" }
+  use { "elixir-tools/elixir-tools.nvim" } -- Temporarily disabled for OmniSharp troubleshooting
   use {
     "olimorris/codecompanion.nvim",
     requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" }
