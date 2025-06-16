@@ -102,8 +102,8 @@ local mappings = {
   { "<leader>pu", "<cmd>PackerUpdate<cr>", desc = "Update", nowait = true, remap = false },
   { "<leader>r", group = "Terminal", nowait = true, remap = false },
   { "<leader>rf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float", nowait = true, remap = false },
-  { "<leader>rh", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal", nowait = true, remap = false },
-  { "<leader>rn", "<cmd>lua _NODE_TOGGLE()<cr>", desc = "Node", nowait = true, remap = false },
+  { "<leader>rh", "<cmd>ToggleTerm size=15 direction=horizontal<cr>", desc = "Horizontal", nowait = true, remap = false },
+  { "<leader>rt", "<cmd>ToggleTerm direction=tab<cr>", desc = "Tab", nowait = true, remap = false },
   { "<leader>rv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical", nowait = true, remap = false },
   { "<leader>s", "<cmd>lua require'user.switch_case'.switch_case()<CR>", desc = "Switch case (snake_case <-> camelCase)", nowait = true, remap = false },
   { "<leader>t", group = "Tests" }, -- , nowait = true, remap = false 

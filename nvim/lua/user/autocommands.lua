@@ -19,6 +19,12 @@ vim.cmd [[
     autocmd FileType markdown setlocal spell
   augroup end
 
+  augroup _csharp
+    autocmd!
+    autocmd FileType cs setlocal tabstop=4
+    autocmd FileType cs setlocal shiftwidth=4
+  augroup end
+
   augroup _auto_resize
     autocmd!
     autocmd VimResized * tabdo wincmd = 
