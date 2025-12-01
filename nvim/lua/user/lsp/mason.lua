@@ -24,9 +24,8 @@ require("mason-lspconfig").setup({
     exclude = { "omnisharp" }
   },
 })
-
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
+local ok, _ = pcall(require, "vim.lsp.config")
+if not ok then
   return
 end
 

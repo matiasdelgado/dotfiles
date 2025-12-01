@@ -1,8 +1,8 @@
 return {
   cmd = { "omnisharp" },
   root_dir = function(fname)
-    local lspconfig = require('lspconfig')
-    return lspconfig.util.root_pattern('*.sln', '*.csproj', '.git')(fname)
+    local util = require('lspconfig.util')
+    return util.root_pattern('*.sln', '*.csproj', '.git')(fname)
   end,
   settings = {
     FormattingOptions = {

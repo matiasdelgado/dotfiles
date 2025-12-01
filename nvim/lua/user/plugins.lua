@@ -94,6 +94,10 @@ return packer.startup(function(use)
   -- Roslyn for C#
   -- use { "Hoffs/roslyn.nvim", run = ":PackerSync" }
 
+  -- Folding
+  use { "chrisgrieser/nvim-origami" }
+  use { "luukvbaal/statuscol.nvim" }
+
   -- Others
   use { "tpope/vim-endwise" }
   use { "elixir-tools/elixir-tools.nvim" } -- Temporarily disabled for OmniSharp troubleshooting

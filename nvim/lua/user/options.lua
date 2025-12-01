@@ -31,6 +31,17 @@ local options = {
   relativenumber = true,                   -- set relative numbered lines
   numberwidth = 4,                         -- set number column width to 2 {default 4}
 
+  foldlevel = 99,
+  foldlevelstart = 99,
+  foldcolumn = "1",
+  fillchars = {
+    foldopen = "▽",
+    foldclose = "▶",
+    foldsep = " ",
+    -- foldopen = "▾",
+    -- foldclose = "▸",
+  },
+
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
   wrap = false,                            -- display lines as one long line
   linebreak = true,                        -- companion to wrap, don't split words

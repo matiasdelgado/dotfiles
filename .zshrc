@@ -17,6 +17,7 @@ setopt nosharehistory
 
 export LESS=-iXFR
 export TERM=xterm-256color-italic
+export EDITOR=nvim
 
 # fpath+=($HOME/.zsh/purer)
 # fpath+=("$(brew --prefix)/share/zsh/site-functions")

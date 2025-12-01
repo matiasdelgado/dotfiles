@@ -5,6 +5,7 @@
   st = status
   cian = commit --amend --no-edit
   l1 = 'log --oneline -1'
+  sp = '!git stash push -m "Temporary stash before pull" && git pull --rebase && git stash pop'
 [pull]
   ff = only
   rebase = true
