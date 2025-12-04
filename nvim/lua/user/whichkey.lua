@@ -73,6 +73,7 @@ local setup = {
 local mappings = {
   { "<leader>F", "<cmd>Files<cr>", desc = "Find files", nowait = true, remap = false },
   { "<leader>b", "<cmd>Buffers<cr>", desc = "Buffers", nowait = true, remap = false },
+  { "<leader>cf", "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", desc = "Code Format", nowait = true, remap = false },
   { "<leader>d", group = "Code / LSP", nowait = true, remap = false },
   { "<leader>da", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
   { "<leader>dd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Go to definition", nowait = true, remap = false },

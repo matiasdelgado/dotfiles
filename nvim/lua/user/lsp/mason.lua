@@ -1,7 +1,16 @@
+local mason_ok, mason = pcall(require, "mason")
+if not mason_ok then return end
+
+local mlsp_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mlsp_ok then return end
+
+local util = require("lspconfig.util")
+
 local servers = {
-  -- Add any servers you want to ensure are installed
+  "ts_ls",
 }
 
+-- Mason setup ---------------------------------------------------------
 local settings = {
   ui = {
     border = "none",
@@ -16,39 +25,63 @@ local settings = {
 }
 
 require("mason").setup(settings)
+
 require("mason-lspconfig").setup({
   ensure_installed = servers,
   automatic_installation = false,
-  -- Exclude omnisharp from automatic enabling to prevent conflicts
   automatic_enable = {
-    exclude = { "omnisharp" }
+    exclude = { "omnisharp" },
   },
 })
-local ok, _ = pcall(require, "vim.lsp.config")
-if not ok then
-  return
-end
 
--- Manual setup for other servers in the list (if any)
-for _, server in pairs(servers) do
-  local opts = {
-    on_attach = require("user.lsp.handlers").on_attach,
+-- require("mason-tool-installer").setup({
+--   ensure_installed = {
+--     "prettier",
+--   },
+-- })
+
+-- Register servers using the new vim.lsp.config API ------------------
+for _, server in ipairs(servers) do
+  local base = vim.lsp.config[server] or {}
+
+  -- Load optional server-specific settings
+  local ok, custom = pcall(require, "user.lsp.settings." .. server)
+  if not ok then custom = {} end
+
+  local opts = vim.tbl_deep_extend("force", base, custom, {
     capabilities = require("user.lsp.handlers").capabilities,
-    root_dir = lspconfig.util.find_git_ancestor
-  }
+    -- root_dir = util.find_git_ancestor,
+    root_dir = util.root_pattern(".git")
+    -- do NOT put on_attach here (we use LspAttach instead)
+  })
 
-  server = vim.split(server, "@")[1]
-
-  local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
-  if require_ok then
-    opts = vim.tbl_deep_extend("force", conf_opts, opts)
-  end
-
-  lspconfig[server].setup(opts)
+  vim.lsp.config[server] = opts
 end
 
--- Manual OmniSharp setup with your custom configuration
+-- Enable all servers now that configs are registered
+vim.lsp.enable(servers)
+
+-- OmniSharp (legacy API still needed until they migrate) ------------
+-- local lspconfig = require("lspconfig") -- still needed ONLY for OmniSharp right now
+-- local omnisharp_opts = require("user.lsp.settings.omnisharp")
+-- 
+-- omnisharp_opts.on_attach = require("user.lsp.handlers").on_attach
+-- omnisharp_opts.capabilities = require("user.lsp.handlers").capabilities
+-- 
+-- lspconfig.omnisharp.setup(omnisharp_opts)
 local omnisharp_opts = require("user.lsp.settings.omnisharp")
-omnisharp_opts.on_attach = require("user.lsp.handlers").on_attach
-omnisharp_opts.capabilities = require("user.lsp.handlers").capabilities
-lspconfig.omnisharp.setup(omnisharp_opts)
+local handlers = require("user.lsp.handlers")
+
+vim.lsp.config.omnisharp = vim.tbl_deep_extend("force",
+  vim.lsp.config.omnisharp or {},
+  {
+    capabilities = handlers.capabilities,
+    on_attach = handlers.on_attach,
+    root_dir = function(fname)
+      return require("lspconfig.util").find_git_ancestor(fname)
+    end,
+  },
+  omnisharp_opts
+)
+
+vim.lsp.enable({ "omnisharp" })

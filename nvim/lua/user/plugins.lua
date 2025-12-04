@@ -99,10 +99,12 @@ return packer.startup(function(use)
   use { "luukvbaal/statuscol.nvim" }
 
   -- Others
+  use { "stevearc/conform.nvim" }
   use { "tpope/vim-endwise" }
-  use { "elixir-tools/elixir-tools.nvim" } -- Temporarily disabled for OmniSharp troubleshooting
+  use { "elixir-tools/elixir-tools.nvim" }
   use {
     "olimorris/codecompanion.nvim",
+    tag = "v17.33.0",
     requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" }
   }
 
