@@ -43,7 +43,6 @@ return packer.startup(function(use)
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
   use { "kyazdani42/nvim-web-devicons" }
-  use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/toggleterm.nvim" }
   use { "lewis6991/impatient.nvim" }
   use { "lukas-reineke/indent-blankline.nvim" }
@@ -95,7 +94,6 @@ return packer.startup(function(use)
   -- use { "Hoffs/roslyn.nvim", run = ":PackerSync" }
 
   -- Folding
-  use { "chrisgrieser/nvim-origami" }
   use { "luukvbaal/statuscol.nvim" }
 
   -- Others
