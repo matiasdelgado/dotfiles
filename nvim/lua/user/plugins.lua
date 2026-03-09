@@ -103,9 +103,14 @@ return packer.startup(function(use)
   use { "tpope/vim-endwise" }
   use { "elixir-tools/elixir-tools.nvim" }
   use {
-    "olimorris/codecompanion.nvim",
-    tag = "v17.33.0",
-    requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" }
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-neotest/nvim-nio",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "Issafalcon/neotest-dotnet",
+    },
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
