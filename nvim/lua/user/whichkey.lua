@@ -115,7 +115,18 @@ local mappings = {
   { "<leader>y", group = "Yank", nowait = true, remap = false },
   { "<leader>ya", "<cmd>:let @+ = expand('%:p')<cr>", desc = "Absolute file path", nowait = true, remap = false },
   { "<leader>yn", "<cmd>:let @+ = expand('%:t')<cr>", desc = "File name", nowait = true, remap = false },
-  { "<leader>yr", "<cmd>:let @+ = expand('%')<cr>", desc = "Relative file path", nowait = true, remap = false }
+  { "<leader>yr", "<cmd>:let @+ = expand('%')<cr>", desc = "Relative file path", nowait = true, remap = false },
+  -- Claude Code
+  { "<leader>a", group = "AI/Claude Code", nowait = true, remap = false },
+  { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude", nowait = true, remap = false },
+  { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude", nowait = true, remap = false },
+  { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude", nowait = true, remap = false },
+  { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude", nowait = true, remap = false },
+  { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model", nowait = true, remap = false },
+  { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer", nowait = true, remap = false },
+  { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude", nowait = true, remap = false },
+  { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff", nowait = true, remap = false },
+  { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff", nowait = true, remap = false },
 }
 
 which_key.setup(setup)

@@ -112,6 +112,11 @@ return packer.startup(function(use)
       "Issafalcon/neotest-dotnet",
     },
   }
+  use {
+    "MeanderingProgrammer/render-markdown.nvim",
+    after = { "nvim-treesitter" },
+  }
+  use { "coder/claudecode.nvim" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
