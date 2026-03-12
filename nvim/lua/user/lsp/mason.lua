@@ -10,8 +10,14 @@ local servers = {
   "ts_ls",
 }
 
+local ensure_installed = vim.deepcopy(servers)
+
 -- Mason setup ---------------------------------------------------------
 local settings = {
+  registries = {
+    "github:mason-org/mason-registry",
+    "github:Crashdummyy/mason-registry",
+  },
   ui = {
     border = "none",
     icons = {
@@ -27,11 +33,8 @@ local settings = {
 require("mason").setup(settings)
 
 require("mason-lspconfig").setup({
-  ensure_installed = servers,
+  ensure_installed = ensure_installed,
   automatic_installation = false,
-  automatic_enable = {
-    exclude = { "omnisharp" },
-  },
 })
 
 -- require("mason-tool-installer").setup({
@@ -61,27 +64,3 @@ end
 -- Enable all servers now that configs are registered
 vim.lsp.enable(servers)
 
--- OmniSharp (legacy API still needed until they migrate) ------------
--- local lspconfig = require("lspconfig") -- still needed ONLY for OmniSharp right now
--- local omnisharp_opts = require("user.lsp.settings.omnisharp")
--- 
--- omnisharp_opts.on_attach = require("user.lsp.handlers").on_attach
--- omnisharp_opts.capabilities = require("user.lsp.handlers").capabilities
--- 
--- lspconfig.omnisharp.setup(omnisharp_opts)
-local omnisharp_opts = require("user.lsp.settings.omnisharp")
-local handlers = require("user.lsp.handlers")
-
-vim.lsp.config.omnisharp = vim.tbl_deep_extend("force",
-  vim.lsp.config.omnisharp or {},
-  {
-    capabilities = handlers.capabilities,
-    on_attach = handlers.on_attach,
-    root_dir = function(fname)
-      return require("lspconfig.util").find_git_ancestor(fname)
-    end,
-  },
-  omnisharp_opts
-)
-
-vim.lsp.enable({ "omnisharp" })

@@ -91,7 +91,7 @@ return packer.startup(function(use)
   use { "ruanyl/vim-gh-line" }
 
   -- Roslyn for C#
-  -- use { "Hoffs/roslyn.nvim", run = ":PackerSync" }
+  use { "seblj/roslyn.nvim" }
 
   -- Folding
   use { "luukvbaal/statuscol.nvim" }
