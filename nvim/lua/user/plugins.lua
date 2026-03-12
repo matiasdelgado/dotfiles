@@ -95,6 +95,14 @@ return packer.startup(function(use)
 
   -- Folding
   use { "luukvbaal/statuscol.nvim" }
+  use {
+    "SmiteshP/nvim-navbuddy",
+    requires = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim"
+    }
+  }
 
   -- Others
   use { "stevearc/conform.nvim" }
