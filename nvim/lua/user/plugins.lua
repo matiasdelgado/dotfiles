@@ -74,9 +74,6 @@ return packer.startup(function(use)
   use { 'junegunn/fzf.vim' }
   -- use { "vijaymarupudi/nvim-fzf" }
 
-  -- Tests
-  use { "vim-test/vim-test", requires = { "skywind3000/asyncrun.vim" } }
-
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter" }
 

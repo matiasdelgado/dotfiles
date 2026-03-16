@@ -37,6 +37,7 @@ local setup = {
     breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
     separator = "➜", -- symbol used between a key and it's label
     group = "+", -- symbol prepended to a group
+    mappings = false, -- disable automatic icons based on description
   },
   keys = {
     scroll_down = "<c-d>", -- binding to scroll down inside the popup
@@ -107,10 +108,13 @@ local mappings = {
   { "<leader>rt", "<cmd>ToggleTerm direction=tab<cr>", desc = "Tab", nowait = true, remap = false },
   { "<leader>rv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical", nowait = true, remap = false },
   { "<leader>s", "<cmd>lua require'user.switch_case'.switch_case()<CR>", desc = "Switch case (snake_case <-> camelCase)", nowait = true, remap = false },
-  { "<leader>t", group = "Tests" }, -- , nowait = true, remap = false 
-  { "<leader>tf", "<cmd>TestFile<CR>", desc = "File", nowait = true, remap = false },
-  { "<leader>tl", "<cmd>TestLast<CR>", desc = "Last", nowait = true, remap = false },
-  { "<leader>tn", "<cmd>TestNearest<CR>", desc = "Nearest", nowait = true, remap = false },
+  { "<leader>t", group = "Tests", nowait = true, remap = false },
+  { "<leader>tn", "<cmd>lua require('neotest').run.run()<CR>", desc = "Nearest", nowait = true, remap = false },
+  { "<leader>tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", desc = "File", nowait = true, remap = false },
+  { "<leader>tl", "<cmd>lua require('neotest').run.run_last()<CR>", desc = "Last", nowait = true, remap = false },
+  { "<leader>ts", "<cmd>lua require('neotest').summary.toggle()<CR>", desc = "Summary", nowait = true, remap = false },
+  { "<leader>to", "<cmd>lua require('neotest').output.open({ enter = true })<CR>", desc = "Output", nowait = true, remap = false },
+  { "<leader>tx", "<cmd>lua require('neotest').run.stop()<CR>", desc = "Stop", nowait = true, remap = false },
   { "<leader>x", "<cmd>Find<cr>", desc = "Find Text", nowait = true, remap = false },
   { "<leader>y", group = "Yank", nowait = true, remap = false },
   { "<leader>ya", "<cmd>:let @+ = expand('%:p')<cr>", desc = "Absolute file path", nowait = true, remap = false },
